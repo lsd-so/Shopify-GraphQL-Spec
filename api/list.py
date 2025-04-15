@@ -2,11 +2,16 @@ from lsd import run_lsd
 
 
 GET_LIST_OF_ITEMS_SQL = """
-list_item <| div[data-testid="primary-column"] > div:nth-of-type({n}) > div[data-testid="gql-list"]:first-of-type dt |
+list_item <| div[data-testid="primary-column"] > div:nth-of-type({n}) > div[data-testid="gql-list"]:first-of-type dl > div[class*="GqlListItem"] |
+list_item_name <| span > span |
+list_item_type <| div > a.underline |
+list_item_non_nullable <| span[class*="NonNullChip"]! |
+list_item_description <| dd div.markdown |
+
 
 FROM {api_information_url}
 |> GROUP BY list_item
-|> SELECT list_item
+|> SELECT list_item_name, list_item_type, list_item_non_nullable, list_item_description
 """
 
 

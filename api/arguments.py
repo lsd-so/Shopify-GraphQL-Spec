@@ -19,5 +19,4 @@ def get_api_arguments(api_information_url):
     if len(results) == 0:
         return []
 
-    first_list = get_first_list(api_information_url)
-    return first_list[0] if len(first_list) > 0 else []
+    return get_first_list(api_information_url)

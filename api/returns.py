@@ -1,6 +1,8 @@
 from lsd import run_lsd
 
+from .first_list import get_first_list
 from .second_list import get_api_second_list
+from .third_list import get_api_third_list
 
 
 HAS_API_RETURNS_SQL = """
@@ -12,12 +14,19 @@ FROM {api_information_url}
 """
 
 
-def get_api_returns(api_information_url):
+def get_api_returns(api_information_url, start_at_second, prior_list_found):
     global HAS_API_RETURNS_SQL
 
-    results = run_lsd(HAS_API_RETURNS_SQL)
+    results = run_lsd(HAS_API_RETURNS_SQL.format(api_information_url=api_information_url))
     if len(results) == 0:
         return []
 
-    second_list = get_api_second_list(api_information_url)
-    return [nested_list[0] for nested_list in second_list] if len(second_list) > 0 else []
+    returns_list = []
+    if not start_at_second and not prior_list_found:
+        returns_list = get_first_list(api_information_url)
+    elif start_at_second and not prior_list_found:
+        returns_list = get_api_second_list(api_information_url)
+    elif start_at_second and prior_list_found:
+        returns_list = get_api_third_list(api_information_url)
+
+    return returns_list

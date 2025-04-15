@@ -15,7 +15,8 @@ def get_api_information(shopify_nav):
         objects = []
         queries = []
 
-        for child in nav.children:
+        for j, child in enumerate(nav.children):
+            print(f"Working on {j+1} nav item child of {len(nav.children)}")
             if child.label == "Mutations":
                 for mutation_child in child.children:
                     mutations += [get_mutation_info(mutation_child.label, complete_nav_url(mutation_child.href))]
