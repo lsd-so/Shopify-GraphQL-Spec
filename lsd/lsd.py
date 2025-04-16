@@ -11,7 +11,7 @@ def establish_connection():
         try:
             print(f"Going to try connecting with {os.environ.get('LSD_USER')} and {os.environ.get('LSD_API_KEY')}")
             GLOBAL_CONN = psycopg2.connect(
-                host="lsd.so",
+                host="localhost",
                 database=os.environ.get("LSD_USER"),
                 user=os.environ.get("LSD_USER"),
                 password=os.environ.get("LSD_API_KEY"),
