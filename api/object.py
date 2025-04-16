@@ -7,17 +7,9 @@ from .returns import get_api_returns
 
 def get_object_info(label, api_information_url):
     name = label
-
-    print("Getting object description")
     description = get_api_description(api_information_url)
-
-    print("Getting object fields/connections")
     fields_and_connections = get_api_fields_or_connections(api_information_url, True)
-
-    print("Getting object returns")
     returns = get_api_returns(api_information_url, False, len(fields_and_connections) > 0)
-
-    print("Getting object examples")
     examples = get_api_examples(api_information_url)
 
     obj = Object(
@@ -27,5 +19,7 @@ def get_object_info(label, api_information_url):
         examples=examples,
     )
 
-    print("Have the following for object:", obj)
+    print("Here is another object")
+    print(obj)
+    
     return obj

@@ -7,17 +7,9 @@ from .returns import get_api_returns
 
 def get_query_info(label, api_information_url):
     name = label
-
-    print("Getting query description")
     description = get_api_description(api_information_url)
-
-    print("Getting query arguments")
     arguments = get_api_arguments(api_information_url)
-
-    print("Getting query returns")
     returns = get_api_returns(api_information_url, False, len(arguments) > 0)
-
-    print("Getting query examples")
     examples = get_api_examples(api_information_url)
 
     query = Query(
@@ -37,5 +29,6 @@ def get_query_info(label, api_information_url):
         examples=examples,
     )
 
-    print("Have the following for query:", query)
+    print("Here is another query")
+    print(query)
     return query

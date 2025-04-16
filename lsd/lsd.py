@@ -23,6 +23,14 @@ def establish_connection():
             sleep(1)
             return establish_connection()
 
+    try:
+        with GLOBAL_CONN.cursor() as curs:
+            curs.execute("FROM https://lsd.so |> SELECT title")
+            rows = curs.fetchall()
+    except Exception as e:
+        GLOBAL_CONN = None
+        return establish_connection()
+
     return GLOBAL_CONN
 
 

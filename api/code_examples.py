@@ -7,16 +7,20 @@ from .models import CodeExample
 
 
 CODE_EXAMPLES_EXISTENCE_SQL = """
-code_examples_container <| ul[class*="ExamplesList"] |
-code_example <| li |
+PORTAL <| OPEN |
+
+container <| ul[class*="Examples"] li |
+item <| li |
 
 FROM {api_information_url}
-|> GROUP BY code_examples_container
-|> SELECT code_example
+|> GROUP BY container
+|> SELECT item
 """
 
 CODE_EXAMPLE_SQL = """
-example_code_container <| div[class*="GqlCodeBlockExamples"] |
+PORTAL <| OPEN |
+
+example_code_container <| div[class*="Examples"] |
 example_code <| code[title="{language}"] |
 
 FROM {modified_url}
@@ -25,22 +29,36 @@ FROM {modified_url}
 """
 
 
-def get_api_example_code(api_information_url, example_description):
+def get_api_example_code(api_information_url, example_description, retrying=False):
     print("Fetching a particular code example")
     simplified_language = EXAMPLE_LANGUAGE.lower() if "." not in EXAMPLE_LANGUAGE else EXAMPLE_LANGUAGE[:EXAMPLE_LANGUAGE.index(".")].lower()
     simplified_example = example_description.replace(" ", "-").lower()
     modified_url = f"{api_information_url}?language={simplified_language}&example={simplified_example}"
 
-    actual_example = run_lsd(CODE_EXAMPLE_SQL.format(language=EXAMPLE_LANGUAGE, modified_url=modified_url))
-    if len(actual_example[0]) > 0 and 'Failed to obtain new columns' in actual_example[0][0]:
+    try:
+        actual_example = run_lsd(CODE_EXAMPLE_SQL.format(language=EXAMPLE_LANGUAGE, modified_url=modified_url))
+    except Exception as e:
+        # Likely no rows returned from this page
+        print("Ran into an exception when running LSD: ", e)
+        return ''
+
+    if len(actual_example) == 0 or len(actual_example[0]) == 0:
+        return ''
+
+    if len(actual_example[0]) > 0 and ('Failed to obtain new columns' in actual_example[0][0] or 'Failed to [FROM]' in actual_example[0][0]):
+        if retrying:
+            return ''
         print(f"Ran into an issue getting example code, sleeping then trying again for {api_information_url} => {example_description}")
         sleep(1)
-        return get_api_example_code(api_information_url, example_description)
+        return get_api_example_code(api_information_url, example_description, True)
 
     return actual_example[0][0] if type(actual_example[0]) is list else actual_example[0]
 
 def get_available_examples(api_information_url):
     available_examples = run_lsd(CODE_EXAMPLES_EXISTENCE_SQL.format(api_information_url=api_information_url))
+    print("First determining the existence of examples")
+    print(available_examples)
+
     if len(available_examples) == 0:
         return []
 
@@ -65,9 +83,11 @@ def get_api_examples(api_information_url):
 
     api_examples = []
     for code_example in available_examples:
-        api_examples += [CodeExample(
-            description=code_example.strip(),
-            code=get_api_example_code(api_information_url, code_example)
-        )]
+        actual_code = get_api_example_code(api_information_url, code_example)
+        if len(actual_code) > 0:
+            api_examples += [CodeExample(
+                description=code_example.strip(),
+                code=actual_code,
+            )]
 
     return api_examples

@@ -8,17 +8,9 @@ from .returns import get_api_returns
 
 def get_mutation_info(label, api_information_url):
     name = label
-
-    print("Getting mutation description")
     description = get_api_description(api_information_url)
-
-    print("Getting mutation arguments")
     arguments = get_api_arguments(api_information_url)
-
-    print("Getting mutation returns")
     returns = get_api_returns(api_information_url, False, len(arguments) > 0)
-
-    print("Getting mutation code examples")
     examples = get_api_examples(api_information_url)
 
     mutation = Mutation(
@@ -38,5 +30,6 @@ def get_mutation_info(label, api_information_url):
         examples=examples
     )
 
-    print("Have the following for mutation: ", mutation)
+    print("Here is another mutation")
+    print(mutation)
     return mutation

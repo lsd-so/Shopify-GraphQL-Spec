@@ -1,6 +1,6 @@
 import json
 
-from api import get_api_information
+from api import get_api_information, get_api_examples
 from nav import get_top_level_operations
 
 
@@ -9,7 +9,7 @@ def main():
     api_information = get_api_information(shopify_nav)
 
     with open("shopify_api.json", "w") as shopify_api_file:
-        json.dump(api_information.to_dict(), shopify_api_file)
+        json.dump(dict(api_information), shopify_api_file)
 
 
 if __name__ == "__main__":
