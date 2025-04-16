@@ -29,6 +29,4 @@ def get_query_info(label, api_information_url):
         examples=examples,
     )
 
-    print("Here is another query")
-    print(query)
     return query

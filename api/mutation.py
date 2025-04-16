@@ -30,6 +30,4 @@ def get_mutation_info(label, api_information_url):
         examples=examples
     )
 
-    print("Here is another mutation")
-    print(mutation)
     return mutation

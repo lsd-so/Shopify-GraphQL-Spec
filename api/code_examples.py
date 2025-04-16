@@ -30,7 +30,6 @@ FROM {modified_url}
 
 
 def get_api_example_code(api_information_url, example_description, retrying=False):
-    print("Fetching a particular code example")
     simplified_language = EXAMPLE_LANGUAGE.lower() if "." not in EXAMPLE_LANGUAGE else EXAMPLE_LANGUAGE[:EXAMPLE_LANGUAGE.index(".")].lower()
     simplified_example = example_description.replace(" ", "-").lower()
     modified_url = f"{api_information_url}?language={simplified_language}&example={simplified_example}"
@@ -56,8 +55,6 @@ def get_api_example_code(api_information_url, example_description, retrying=Fals
 
 def get_available_examples(api_information_url):
     available_examples = run_lsd(CODE_EXAMPLES_EXISTENCE_SQL.format(api_information_url=api_information_url))
-    print("First determining the existence of examples")
-    print(available_examples)
 
     if len(available_examples) == 0:
         return []

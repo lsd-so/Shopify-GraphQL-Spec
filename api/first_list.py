@@ -4,8 +4,6 @@ from .list import get_list_of_items
 
 
 def get_first_list(api_information_url):
-    print(f"Attempting to get the first list on the page at [{api_information_url}]")
-
     counter = 0
     first_list = []
     while len(first_list) == 0:

@@ -8,20 +8,21 @@ def establish_connection():
     global GLOBAL_CONN
 
     if GLOBAL_CONN is None:
-        try:
-            print(f"Going to try connecting with {os.environ.get('LSD_USER')} and {os.environ.get('LSD_API_KEY')}")
-            GLOBAL_CONN = psycopg2.connect(
-                host="localhost",
-                database=os.environ.get("LSD_USER"),
-                user=os.environ.get("LSD_USER"),
-                password=os.environ.get("LSD_API_KEY"),
-                port="5432",
-            )
-        except Exception as e:
-            print("Ran into an issue connecting...")
-            print(e)
-            sleep(1)
-            return establish_connection()
+        while True:
+            try:
+                print(f"Going to try connecting with {os.environ.get('LSD_USER')} and {os.environ.get('LSD_API_KEY')}")
+                GLOBAL_CONN = psycopg2.connect(
+                    host="localhost",
+                    database=os.environ.get("LSD_USER"),
+                    user=os.environ.get("LSD_USER"),
+                    password=os.environ.get("LSD_API_KEY"),
+                    port="5432",
+                )
+                break
+            except Exception as e:
+                print("Ran into an issue connecting...")
+                print(e)
+                sleep(1)
 
     # Try out a simple request before handing back the postgres connection
     # in case, say, the wifi suddenly cut out after having already been
@@ -37,9 +38,17 @@ def establish_connection():
     return GLOBAL_CONN
 
 
-def run_lsd(lsd_sql):
+def run_lsd(lsd_sql, retrying=False):
     conn = establish_connection()
-    with conn.cursor() as curs:
-        curs.execute(lsd_sql)
-        rows = curs.fetchall()
-        return [list(r) for r in rows]
+    try:
+        with conn.cursor() as curs:
+            curs.execute(lsd_sql)
+            rows = curs.fetchall()
+            return [list(r) for r in rows]
+    except Exception as e:
+        if retrying:
+            return []
+
+        global GLOBAL_CONN
+        GLOBAL_CONN = None
+        return run_lsd(lsd_sql, True)

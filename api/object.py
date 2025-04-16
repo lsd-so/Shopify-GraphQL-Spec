@@ -19,7 +19,4 @@ def get_object_info(label, api_information_url):
         examples=examples,
     )
 
-    print("Here is another object")
-    print(obj)
-    
     return obj
