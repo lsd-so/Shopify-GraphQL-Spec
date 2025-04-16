@@ -13,7 +13,11 @@ This project mines Shopify API docs for the spec to their GraphQL API using [LSD
 
 ## Give me the data
 
-If you are only interested in the spec to the GraphQL API, you can use the types defined in [`api/models.py`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py) to work with the [`shopify_api.json` file]() which is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96).
+If you're interested in the Shopify GraphQL being programmatically accessible, the two files you'd be most interested in are:
+
+* [`api/models.py`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py) => Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the GraphQL operations are defined
+* [`shopify_api.json`]() => Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
+  * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96)
 
 If you'd like to run this project then continue reading to learn how.
 
