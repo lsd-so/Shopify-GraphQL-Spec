@@ -7,6 +7,7 @@ This project mines Shopify API docs for the spec to their GraphQL API using [LSD
 ## Contents
 
 * [Give me the data](#give-me-the-data)
+* [Help me vibe code this](#help-me-vibe-code-this)
 * [Setup](#setup)
 * [Running](#running)
 * [LSD Cache](#lsd-cache)
@@ -20,6 +21,10 @@ If you're interested in the Shopify GraphQL being programmatically accessible, t
   * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96)
 
 If you'd like to get the data yourself or update to match a new version of the Shopify API, then continue reading to learn how.
+
+## Help me vibe code this
+
+1. Download the [JSON file]() 
 
 ## Setup
 
