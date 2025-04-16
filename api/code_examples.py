@@ -38,7 +38,6 @@ def get_api_example_code(api_information_url, example_description, retrying=Fals
         actual_example = run_lsd(CODE_EXAMPLE_SQL.format(language=EXAMPLE_LANGUAGE, modified_url=modified_url))
     except Exception as e:
         # Likely no rows returned from this page
-        print("Ran into an exception when running LSD: ", e)
         return ''
 
     if len(actual_example) == 0 or len(actual_example[0]) == 0:
@@ -47,7 +46,6 @@ def get_api_example_code(api_information_url, example_description, retrying=Fals
     if len(actual_example[0]) > 0 and ('Failed to obtain new columns' in actual_example[0][0] or 'Failed to [FROM]' in actual_example[0][0]):
         if retrying:
             return ''
-        print(f"Ran into an issue getting example code, sleeping then trying again for {api_information_url} => {example_description}")
         sleep(1)
         return get_api_example_code(api_information_url, example_description, True)
 
@@ -63,7 +61,6 @@ def get_available_examples(api_information_url):
         available_examples = [item for row in available_examples for item in row]
 
     if 'Failed to obtain new columns' in available_examples[0]:
-        print(f"Ran into an issue getting available examples, sleeping then trying again for {api_information_url}")
         sleep(1)
         return get_available_examples(api_information_url)
 

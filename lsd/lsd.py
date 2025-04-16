@@ -10,9 +10,8 @@ def establish_connection():
     if GLOBAL_CONN is None:
         while True:
             try:
-                print(f"Going to try connecting with {os.environ.get('LSD_USER')} and {os.environ.get('LSD_API_KEY')}")
                 GLOBAL_CONN = psycopg2.connect(
-                    host="localhost",
+                    host="lsd.so",
                     database=os.environ.get("LSD_USER"),
                     user=os.environ.get("LSD_USER"),
                     password=os.environ.get("LSD_API_KEY"),
@@ -20,8 +19,6 @@ def establish_connection():
                 )
                 break
             except Exception as e:
-                print("Ran into an issue connecting...")
-                print(e)
                 sleep(1)
 
     # Try out a simple request before handing back the postgres connection
