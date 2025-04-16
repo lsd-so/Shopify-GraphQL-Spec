@@ -30,7 +30,11 @@ If you're interested in the Shopify GraphQL being programmatically accessible, t
 $ git clone https://github.com/lsd-so/Shopify-GraphQL-Spec.git
 ```
 
-2. 
+2. Just run the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py)
+
+```bash
+$ uv run main.py
+```
 
 ### Getting the data yourself
 
@@ -52,6 +56,16 @@ Set the `LSD_USER` and `LSD_API_KEY` environment variables using [your authentic
 ```
 $ export LSD_USER='your@email.domain'
 $ export LSD_API_KEY='<api key from profile>'
+```
+
+And update the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py) file to `get_data()` instead of `print_data()`
+
+```diff
+def main():
+-    # get_data()
++     get_data()
+-    print_data()
++    # print_data()
 ```
 
 ## Mining
