@@ -51,6 +51,7 @@ LLMs are already familiar with GraphQL so this gives them the ability to underst
    1. Make sure you are using the `models.py` file in `api/`!
 3. Go to Cursor, click "New chat", click "Add context", click "Files & folders", and add both files to your context
 4. Vibe code with Cursor now understanding how to use the Shopify GraphQL API
+   1. If something doesn't work, try checking the option for longer context
 
 ## Mining Shopify GraphQL yourself
 
