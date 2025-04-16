@@ -20,7 +20,7 @@ If you're interested in the Shopify GraphQL being programmatically accessible, t
 * [`shopify_api.json`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/shopify_api.json) -> Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
   * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96)
 
-If you'd like to get the data yourself or update to match a new version of the Shopify API, then continue reading to learn how.
+If you'd like to get the data yourself or update to match a new version of the Shopify API, then [continue reading to learn how](#mining-shopify-graphql-yourself).
 
 ## Help me vibe code this
 
