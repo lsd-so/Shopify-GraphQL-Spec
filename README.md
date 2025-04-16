@@ -1,5 +1,7 @@
 # shopify graphql
 
+![Shopify LSD diagram](media/Shopify_LSD.jpg)
+
 This project mines Shopify API docs for the spec to their GraphQL API using [LSD](https://lsd.so).
 
 ## Contents
