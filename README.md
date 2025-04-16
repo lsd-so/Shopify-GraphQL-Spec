@@ -7,6 +7,8 @@ This project mines Shopify API docs for the spec to their GraphQL API using [LSD
 ## Contents
 
 * [Give me the data](#give-me-the-data)
+  * [Step by step](#step-by-step)
+  * [Getting the data yourself](#getting-the-data-yourself)
 * [Help me vibe code this](#help-me-vibe-code-this)
 * [Mining Shopify GraphQL yourself](#mining-shopify-graphql-yourself)
 * [Mining](#mining)
@@ -19,6 +21,18 @@ If you're interested in the Shopify GraphQL being programmatically accessible, t
 * [`api/models.py`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py) -> Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the GraphQL operations are defined
 * [`shopify_api.json`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/shopify_api.json) -> Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
   * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96)
+
+### Step by step
+
+1. Clone this repo
+
+```bash
+$ git clone https://github.com/lsd-so/Shopify-GraphQL-Spec.git
+```
+
+2. 
+
+### Getting the data yourself
 
 If you'd like to get the data yourself or update to match a new version of the Shopify API, then [continue reading to learn how](#mining-shopify-graphql-yourself).
 
