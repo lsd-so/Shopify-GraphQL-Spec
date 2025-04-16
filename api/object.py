@@ -20,9 +20,12 @@ def get_object_info(label, api_information_url):
     print("Getting object examples")
     examples = get_api_examples(api_information_url)
 
-    return Object(
+    obj = Object(
         name=name,
-        description=description,
+        description=description.strip(),
         fields_and_connections=fields_and_connections,
         examples=examples,
     )
+
+    print("Have the following for object:", obj)
+    return obj

@@ -20,9 +20,9 @@ def get_query_info(label, api_information_url):
     print("Getting query examples")
     examples = get_api_examples(api_information_url)
 
-    return Query(
+    query = Query(
         name=name,
-        description=description,
+        description=description.strip(),
         arguments=[QueryArgument(
             name=argument[0],
             type=argument[1],
@@ -32,7 +32,10 @@ def get_query_info(label, api_information_url):
         returns=[QueryReturn(
             name=r[0],
             type=r[1],
-            description=r[2],
+            description=r[2].strip(),
         ) for r in returns],
         examples=examples,
     )
+
+    print("Have the following for query:", query)
+    return query

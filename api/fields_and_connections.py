@@ -25,7 +25,7 @@ def get_api_fields_or_connections(api_information_url, should_get_first_list=Fal
     global HAS_API_FIELDS
     global HAS_API_FIELDS_AND_CONNECTIONS
 
-    results = run_lsd(HAS_API_FIELDS)
+    results = run_lsd(HAS_API_FIELDS.format(api_information_url=api_information_url))
     fields_or_connections_list = []
     if len(results) > 0:
         fields_or_connections_list = get_first_list(api_information_url) if should_get_first_list else get_api_second_list(api_information_url)

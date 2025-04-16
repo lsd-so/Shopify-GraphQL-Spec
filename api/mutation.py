@@ -21,9 +21,9 @@ def get_mutation_info(label, api_information_url):
     print("Getting mutation code examples")
     examples = get_api_examples(api_information_url)
 
-    return Mutation(
+    mutation = Mutation(
         name=name,
-        description=description,
+        description=description.strip(),
         arguments=[MutationArgument(
             name=argument[0],
             type=argument[1],
@@ -33,7 +33,10 @@ def get_mutation_info(label, api_information_url):
         returns=[MutationReturn(
             name=return_[0],
             type=return_[1],
-            description=return_[2]
+            description=return_[2].strip()
         ) for return_ in returns],
         examples=examples
     )
+
+    print("Have the following for mutation: ", mutation)
+    return mutation

@@ -57,15 +57,6 @@ argument <|
 FROM {api_information_url}
 """
 
-
-    # Looping over each navItem
-
-    # the key is the shopify api breakdown name
-    # looping over each child -> the label is one of Queries/Mutations/Objects
-    # based on the label then go through respective flow over children of this child of getting elements from page based on function
-    # when done with each of the nav item links inside the children of child append to categories
-    
-
 def main():
     print("Hello from shopify-graphql!")
     shopify_nav = get_top_level_operations()
@@ -74,6 +65,9 @@ def main():
     api_information = get_api_information(shopify_nav)
     print("and we got this for api information")
     print(api_information)
+
+    with open("shopify_api.json", "w") as shopify_api_file:
+        json.dump(api_information.to_dict(), shopify_api_file)
 
 
 if __name__ == "__main__":

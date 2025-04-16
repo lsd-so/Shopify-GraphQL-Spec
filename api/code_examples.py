@@ -66,7 +66,7 @@ def get_api_examples(api_information_url):
     api_examples = []
     for code_example in available_examples:
         api_examples += [CodeExample(
-            description=code_example,
+            description=code_example.strip(),
             code=get_api_example_code(api_information_url, code_example)
         )]
 
