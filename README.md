@@ -42,6 +42,8 @@ If you'd like to get the data yourself or update to match a new version of the S
 
 ## Help me vibe code this
 
+![Screenshot of Cursor generating code using the Shopify GraphQL API](media/cursor.png)
+
 LLMs are already familiar with GraphQL so this gives them the ability to understand Shopify's GraphQL specifically.
 
 1. Download the [JSON file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/shopify_api.json) and [Python models](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py)
