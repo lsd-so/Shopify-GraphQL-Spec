@@ -40,4 +40,4 @@ And there ya go.
 
 When running this python project, it involves querying the same page more than once for different groups of elements (such as in [here](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/fields_and_connections.py#L28) or [here](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/fields_and_connections.py#L33)). To prevent overloading Shopify's servers, pages in distinct states (whether statically off a public URL or following a sequence of deterministic interactions) are specifically cached for up to 15 minutes on LSD for scenarios like this.
 
-Think of this as a language with cache that provides a more developer friendly Wayback machine.
+Think of this as a language with caching that provides a more developer friendly [Wayback machine](https://web.archive.org/).
