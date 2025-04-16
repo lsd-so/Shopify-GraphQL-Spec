@@ -23,6 +23,9 @@ def establish_connection():
             sleep(1)
             return establish_connection()
 
+    # Try out a simple request before handing back the postgres connection
+    # in case, say, the wifi suddenly cut out after having already been
+    # running the script a while. Yeah, not fun
     try:
         with GLOBAL_CONN.cursor() as curs:
             curs.execute("FROM https://lsd.so |> SELECT title")
