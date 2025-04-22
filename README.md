@@ -47,7 +47,7 @@ $ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' 
 
 1. Install the [python package](https://pypi.org/project/shopagent/)
 
-```
+```bash
 $ uv add shopagent
 ```
 
@@ -55,7 +55,7 @@ $ uv add shopagent
 
 #### Generate agent
 
-```
+```python
 from shopagent import generate_agent
 
 request = "Cancel an order"
@@ -64,7 +64,7 @@ generate_agent(request)
 
 #### Generate agent from terminal input
 
-```
+```python
 from shopagent import gen_agent
 
 gen_agent()
@@ -72,7 +72,7 @@ gen_agent()
 
 #### Print data
 
-```
+```python
 from shopagent import print_data
 
 print_data()
@@ -80,7 +80,7 @@ print_data()
 
 #### Get data
 
-```
+```python
 from shopagent import get_data
 
 get_data()
@@ -90,13 +90,13 @@ get_data()
 
 1. Clone the repo
 
-```
+```bash
 $ git clone https://github.com/lsd-so/shopagent.git
 ```
 
 2. Run `uv run main.py`
 
-```
+```bash
 $ uv run main.py
 ```
 
@@ -175,7 +175,7 @@ LLMs are already familiar with GraphQL so this gives them the ability to underst
 
 1. Set the `LSD_USER` and `LSD_API_KEY` environment variables using [your authenticated credentials](https://lsd.so/profile).
 
-```
+```bash
 $ export LSD_USER='your@email.domain'
 $ export LSD_API_KEY='<api key from profile>'
 ```
