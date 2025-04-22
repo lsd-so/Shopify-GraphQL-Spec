@@ -1,4 +1,4 @@
-from shopagent.models import ShopifyAPI, ShopifyAPIBreakdown
+from shopagent.models.api import ShopifyAPI, ShopifyAPIBreakdown
 from shopagent.nav import complete_nav_url, get_top_level_operations
 
 from .mutation import get_mutation_info
