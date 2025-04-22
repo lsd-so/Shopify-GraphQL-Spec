@@ -122,7 +122,7 @@ The official Shopify MCP server explicitly prompts to not interact with [the sto
 
 If you're interested in the Shopify GraphQL being programmatically accessible, the two files you'd be most interested in are:
 
-* [`api/models.py`](https://github.com/lsd-so/shopagent/blob/main/shopagent/api/models.py) -> Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the derived GraphQL operations are defined
+* [`models/api.py`](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py) -> Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the derived GraphQL operations are defined
 * [`shopify_api.json`](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) -> Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
   * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/shopagent/blob/main/shopagent/api/models.py#L96)
   * For an example of working from the already obtained data, see [`get_data` in `main.py`](https://github.com/lsd-so/shopagent/blob/main/main.py#L11)
