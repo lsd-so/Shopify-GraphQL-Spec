@@ -19,7 +19,6 @@ def establish_connection():
                 )
                 break
             except Exception as e:
-                print("Ran into an issue connecting (now sleeping before trying again):", e)
                 sleep(1)
 
     # Try out a simple request before handing back the postgres connection
