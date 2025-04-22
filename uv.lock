@@ -441,8 +441,8 @@ wheels = [
 ]
 
 [[package]]
-name = "shopify-graphql"
-version = "0.1.0"
+name = "shopagent"
+version = "0.7.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
