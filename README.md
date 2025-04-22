@@ -62,11 +62,11 @@ $ git clone https://github.com/lsd-so/Shopify-GraphQL-Spec.git
 
 ```diff
 def main():
--    # get_data()
-+     get_data()
--     get_data()
+    # get_data()
+-     gen_agent()
 +    # gen_agent()
-    # print_data()
+-    # print_data()
++    print_data()
 ```
 
 3. Using [uv](https://docs.astral.sh/uv/getting-started/installation/) ([Why?](https://docs.astral.sh/uv/#highlights)), run the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py) at the root of the project.
