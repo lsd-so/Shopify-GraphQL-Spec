@@ -29,6 +29,8 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ### One liner
 
+The below assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/).
+
 Replace the `{request}` in the below snippet for a one-liner to generate a Shopify agent
 
 ```bash
