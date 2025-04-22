@@ -29,7 +29,7 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ### One liner
 
-This assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/) as well as [Ollama](https://ollama.com/download) and the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) in your working directory.
+This assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/) as well as [Ollama](https://ollama.com/download).
 
 Replace the `{request}` in the below snippet for a one-liner to generate a Shopify agent
 
@@ -45,17 +45,15 @@ $ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' 
 
 ### From python package
 
-1. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your working directory.
-
-2. Install the [python package](https://pypi.org/project/shopagent/)
+1. Install the [python package](https://pypi.org/project/shopagent/)
 
 ```
 $ uv add shopagent
 ```
 
-3. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
+2. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
 
-4. Import and run the method you're interested in
+3. Import and run the method you're interested in
 
 #### Generate agent
 
