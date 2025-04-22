@@ -20,11 +20,11 @@ def get_top_level_operations():
 
 
 def print_data():
-    if not os.path.exists("shopify_api.json"):
+    if not os.path.exists("data/shopify_api.json"):
         sys.exit("Missing [shopify_api.json] file in your working directory. Please download from https://github.com/lsd-so/shopagent/blob/main/shopify_api.json")
         return
 
-    with open("shopify_api.json", "r") as shopify_api_file:
+    with open("data/shopify_api.json", "r") as shopify_api_file:
         data = json.load(shopify_api_file)
         api_information = ShopifyAPI(**data)
 

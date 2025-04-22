@@ -168,7 +168,7 @@ If you'd like to get the data yourself or update to match a new version of the S
 
 LLMs are already familiar with GraphQL so this gives them the ability to understand Shopify's GraphQL specifically.
 
-1. Download the [JSON file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) and [Python models](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py)
+1. Download the [JSON file](https://github.com/lsd-so/shopagent/blob/main/data/shopify_api.json) and [Python models](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py)
 2. Place both the JSON file and Python file in your repo
    1. Make sure you are using the `models/api.py` file!
 3. Go to Cursor, click "New chat", click "Add context", click "Files & folders", and add both files to your context

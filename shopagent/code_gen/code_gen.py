@@ -55,7 +55,7 @@ search_shopify_graphql_tool = {
 
 
 def search_shopify_graphql(query, search_type):
-    with open("shopify_api.json", "r") as shopify_api_file:
+    with open("data/shopify_api.json", "r") as shopify_api_file:
         data = json.load(shopify_api_file)
         api_information = ShopifyAPI(**data)
 
