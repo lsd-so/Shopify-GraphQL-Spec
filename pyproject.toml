@@ -1,7 +1,7 @@
 [project]
-name = "shopify-graphql"
-version = "0.1.0"
-description = "Add your description here"
+name = "shopagent"
+version = "0.2.0"
+description = "Codegen Shopify agents in Ruby"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
