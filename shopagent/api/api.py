@@ -51,5 +51,5 @@ def get_data():
     shopify_nav = get_top_level_operations()
     api_information = get_api_information(shopify_nav)
 
-    with open("shopify_api.json", "w") as shopify_api_file:
+    with open("data/shopify_api.json", "w") as shopify_api_file:
         json.dump(api_information.model_dump(), shopify_api_file)

@@ -29,7 +29,7 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ### One liner
 
-This assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/) as well as [Ollama](https://ollama.com/download) and the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) in your working directory.
+This assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/) as well as [Ollama](https://ollama.com/download).
 
 Replace the `{request}` in the below snippet for a one-liner to generate a Shopify agent
 
@@ -45,17 +45,15 @@ $ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' 
 
 ### From python package
 
-1. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your working directory.
-
-2. Install the [python package](https://pypi.org/project/shopagent/)
+1. Install the [python package](https://pypi.org/project/shopagent/)
 
 ```
 $ uv add shopagent
 ```
 
-3. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
+2. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
 
-4. Import and run the method you're interested in
+3. Import and run the method you're interested in
 
 #### Generate agent
 
@@ -168,7 +166,7 @@ If you'd like to get the data yourself or update to match a new version of the S
 
 LLMs are already familiar with GraphQL so this gives them the ability to understand Shopify's GraphQL specifically.
 
-1. Download the [JSON file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) and [Python models](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py)
+1. Download the [JSON file](https://github.com/lsd-so/shopagent/blob/main/data/shopify_api.json) and [Python models](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py)
 2. Place both the JSON file and Python file in your repo
    1. Make sure you are using the `models/api.py` file!
 3. Go to Cursor, click "New chat", click "Add context", click "Files & folders", and add both files to your context
