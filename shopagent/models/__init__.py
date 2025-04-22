@@ -1,2 +1,2 @@
-from .api import *
-from .nav import *
+from shopagent.models.api import *
+from shopagent.models.nav import *
