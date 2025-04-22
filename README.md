@@ -7,6 +7,11 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 ## Contents
 
 * [Getting started](#getting-started)
+  * [From python package](#from-python-package)
+	* [Generate agent](#generate-agent)
+	* [Print data](#print-data)
+	* [Get data](#get-data)
+  * [From source](#from-source)
 * [Why](#why)
 * [Why only the admin API?](#why-only-the-admin-api)
 * [Gimme the data](#gimme-the-data)
@@ -21,11 +26,61 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ![GIF of generating a Shopify agent](media/codegen.gif)
 
+### From python package
+
+1. Install the [python package](https://pypi.org/project/shopagent/)
+
+```
+$ uv add shopagent
+```
+
+2. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
+
+3. Import and run the method you're interested in
+
+#### Generate agent
+
+```
+from shopagent import gen_agent
+
+gen_agent()
+```
+
+#### Print data
+
+```
+from shopagent import print_data
+
+print_data()
+```
+
+#### Get data
+
+```
+from shopagent import get_data
+
+get_data()
+```
+
+### From source
+
 1. Clone the repo
+
+```
+$ git clone https://github.com/lsd-so/shopagent.git
+```
 
 2. Run `uv run main.py`
 
+```
+$ uv run main.py
+```
+
 3. Answer prompt
+
+```
+What would you like your agent to do? <your reply here>
+```
 
 4. Now you have an `agent.rb` file
 
@@ -37,16 +92,16 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ## Why only the admin API?
 
-The official Shopify MCP server explicitly prompts to not interact with [the storefront or functions APIs](https://github.com/Shopify/dev-mcp/blob/main/src/tools/index.ts#L92). If there is a specific dataset you're interested in that wouldn't bother Shopify, then feel free to [file an issue](https://github.com/lsd-so/Shopify-GraphQL-Spec/issues/new/choose).
+The official Shopify MCP server explicitly prompts to not interact with [the storefront or functions APIs](https://github.com/Shopify/dev-mcp/blob/main/src/tools/index.ts#L92). If there is a specific dataset you're interested in that wouldn't bother Shopify, then feel free to [file an issue](https://github.com/lsd-so/shopagent/issues/new/choose).
 
 ## Gimme the data
 
 If you're interested in the Shopify GraphQL being programmatically accessible, the two files you'd be most interested in are:
 
-* [`api/models.py`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py) -> Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the derived GraphQL operations are defined
-* [`shopify_api.json`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/shopify_api.json) -> Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
-  * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py#L96)
-  * For an example of working from the already obtained data, see [`get_data` in `main.py`](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py#L11)
+* [`api/models.py`](https://github.com/lsd-so/shopagent/blob/main/shopagent/api/models.py) -> Where the [Pydantic](https://docs.pydantic.dev/latest/) models for the derived GraphQL operations are defined
+* [`shopify_api.json`](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) -> Where the Shopify GraphQL spec can be viewed as a JSON with code examples included.
+  * This is structured as a [`ShopifyAPI` object](https://github.com/lsd-so/shopagent/blob/main/shopagent/api/models.py#L96)
+  * For an example of working from the already obtained data, see [`get_data` in `main.py`](https://github.com/lsd-so/shopagent/blob/main/main.py#L11)
 
 ### Pretty printing the data
 
@@ -55,10 +110,10 @@ If you're interested in the Shopify GraphQL being programmatically accessible, t
 1.  Clone this repository.
 
 ```bash
-$ git clone https://github.com/lsd-so/Shopify-GraphQL-Spec.git
+$ git clone https://github.com/lsd-so/shopagent.git
 ```
 
-2. Update the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py) file to `print_data()` instead of `gen_agent()`
+2. Update the [`main.py` file](https://github.com/lsd-so/shopagent/blob/main/main.py) file to `print_data()` instead of `gen_agent()`
 
 ```diff
 def main():
@@ -69,7 +124,7 @@ def main():
 +    print_data()
 ```
 
-3. Using [uv](https://docs.astral.sh/uv/getting-started/installation/) ([Why?](https://docs.astral.sh/uv/#highlights)), run the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py) at the root of the project.
+3. Using [uv](https://docs.astral.sh/uv/getting-started/installation/) ([Why?](https://docs.astral.sh/uv/#highlights)), run the [`main.py` file](https://github.com/lsd-so/shopagent/blob/main/main.py) at the root of the project.
 
 ```bash
 $ uv run main.py
@@ -85,9 +140,9 @@ If you'd like to get the data yourself or update to match a new version of the S
 
 LLMs are already familiar with GraphQL so this gives them the ability to understand Shopify's GraphQL specifically.
 
-1. Download the [JSON file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/shopify_api.json) and [Python models](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/models.py)
+1. Download the [JSON file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) and [Python models](https://github.com/lsd-so/shopagent/blob/main/shopagent/models/api.py)
 2. Place both the JSON file and Python file in your repo
-   1. Make sure you are using the `models.py` file in `api/`!
+   1. Make sure you are using the `models/api.py` file!
 3. Go to Cursor, click "New chat", click "Add context", click "Files & folders", and add both files to your context
 4. Vibe code with Cursor now understanding how to use the Shopify GraphQL API
    1. If something doesn't work, try checking the option for longer context
@@ -104,10 +159,10 @@ $ export LSD_API_KEY='<api key from profile>'
 2.  Clone this repository.
 
 ```bash
-$ git clone https://github.com/lsd-so/Shopify-GraphQL-Spec.git
+$ git clone https://github.com/lsd-so/shopagent.git
 ```
 
-3. And update the [`main.py` file](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/main.py) file to `get_data()` instead of `gen_agent()`
+3. And update the [`main.py` file](https://github.com/lsd-so/shopagent/blob/main/main.py) file to `get_data()` instead of `gen_agent()`
 
 ```diff
 def main():
@@ -128,6 +183,6 @@ And there ya go.
 
 ## LSD Cache
 
-When running this python project, it involves querying the same page more than once for different groups of elements (such as in [here](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/fields_and_connections.py#L28) or [here](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/fields_and_connections.py#L33)). To prevent overloading Shopify's servers, pages in distinct states (whether statically off a public URL or following a sequence of deterministic interactions) are specifically cached for up to 15 minutes on LSD for scenarios like this.
+When running this python project, it involves querying the same page more than once for different groups of elements (such as in [here](https://github.com/lsd-so/Shopify-GraphQL-Spec/blob/main/api/fields_and_connections.py#L28) or [here](https://github.com/lsd-so/shopagent/blob/main/shopagent/api/fields_and_connections.py#L33)). To prevent overloading Shopify's servers, pages in distinct states (whether statically off a public URL or following a sequence of deterministic interactions) are specifically cached for up to 15 minutes on LSD for scenarios like this.
 
 Think of [LSD](https://lsd.so) as a language with caching that provides a more developer friendly [Wayback machine](https://web.archive.org/). Follow us on [Twitter](https://x.com/getlsd) to stay tuned!
