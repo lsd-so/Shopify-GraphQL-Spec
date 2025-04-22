@@ -7,6 +7,7 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 ## Contents
 
 * [Getting started](#getting-started)
+  * [One liner](#one-liner)
   * [From python package](#from-python-package)
 	* [Generate agent](#generate-agent)
 	* [Print data](#print-data)
@@ -25,6 +26,20 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 ## Getting started
 
 ![GIF of generating a Shopify agent](media/codegen.gif)
+
+### One liner
+
+Replace the `{request}` in the below snippet for a one-liner to generate a Shopify agent
+
+```bash
+$ echo 'from shopagent import generate_agent;generate_agent("{request}")' | uv run --with shopagent -
+```
+
+For example:
+
+```bash
+$ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' | uv run --with shopagent -
+```
 
 ### From python package
 
