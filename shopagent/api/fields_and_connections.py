@@ -1,7 +1,7 @@
-from lsd import run_lsd
+from shopagent.lsd import run_lsd
+from shopagent.models import ObjectFieldOrConnection
 
 from .first_list import get_first_list
-from .models import ObjectFieldOrConnection
 from .second_list import get_api_second_list
 
 

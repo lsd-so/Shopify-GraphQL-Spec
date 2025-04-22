@@ -8,4 +8,7 @@ SHOPIFY_NAV_API_URL = "https://shopify.dev/docs/api/admin-graphql/latest/nav"
 EXAMPLE_LANGUAGES = ["GQL", "cURL", "Remix", "Node.js", "Ruby"]
 
 # The language to be getting code examples in
-EXAMPLE_LANGUAGE = EXAMPLE_LANGUAGES[3] # "Node.js"
+EXAMPLE_LANGUAGE = EXAMPLE_LANGUAGES[4] # "Ruby"
+
+# The Llama model to request from ollama
+OLLAMA_MODEL = 'llama3.2'

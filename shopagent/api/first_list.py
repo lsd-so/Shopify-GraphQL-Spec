@@ -1,4 +1,4 @@
-from lsd import run_lsd
+from shopagent.lsd import run_lsd
 
 from .list import get_list_of_items
 

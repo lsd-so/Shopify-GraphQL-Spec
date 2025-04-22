@@ -1,9 +1,9 @@
+import re
 from time import sleep
 
-from constants import EXAMPLE_LANGUAGE
-from lsd import run_lsd
-
-from .models import CodeExample
+from shopagent.constants import EXAMPLE_LANGUAGE
+from shopagent.lsd import run_lsd
+from shopagent.models import CodeExample
 
 
 CODE_EXAMPLES_EXISTENCE_SQL = """
@@ -31,7 +31,7 @@ FROM {modified_url}
 
 def get_api_example_code(api_information_url, example_description, retrying=False):
     simplified_language = EXAMPLE_LANGUAGE.lower() if "." not in EXAMPLE_LANGUAGE else EXAMPLE_LANGUAGE[:EXAMPLE_LANGUAGE.index(".")].lower()
-    simplified_example = example_description.replace(" ", "-").lower()
+    simplified_example = re.sub(r'[^a-zA-Z0-9\-]', '', example_description.replace(" ", "-").lower())
     modified_url = f"{api_information_url}?language={simplified_language}&example={simplified_example}"
 
     try:

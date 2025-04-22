@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
-
 # The type def for a code example belonging to an graphql operation
 class CodeExample(BaseModel):
     description: str

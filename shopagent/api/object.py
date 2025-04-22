@@ -1,7 +1,8 @@
+from shopagent.models import Object
+
 from .code_examples import get_api_examples
 from .description import get_api_description
 from .fields_and_connections import get_api_fields_or_connections
-from .models import Object
 from .returns import get_api_returns
 
 
