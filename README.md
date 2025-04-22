@@ -29,7 +29,7 @@ Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [
 
 ### One liner
 
-The below assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/).
+This assumes you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/) as well as [Ollama](https://ollama.com/download) and the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) in your working directory.
 
 Replace the `{request}` in the below snippet for a one-liner to generate a Shopify agent
 
