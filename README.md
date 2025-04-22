@@ -51,9 +51,7 @@ $ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' 
 $ uv add shopagent
 ```
 
-2. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
-
-3. Import and run the method you're interested in
+2. Import and run the method you're interested in
 
 #### Generate agent
 
