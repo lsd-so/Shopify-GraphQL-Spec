@@ -45,17 +45,28 @@ $ echo 'from shopagent import generate_agent;generate_agent("Cancel an order")' 
 
 ### From python package
 
-1. Install the [python package](https://pypi.org/project/shopagent/)
+1. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your working directory.
+
+2. Install the [python package](https://pypi.org/project/shopagent/)
 
 ```
 $ uv add shopagent
 ```
 
-2. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
+3. Download the [`shopify_api.json` file](https://github.com/lsd-so/shopagent/blob/main/shopify_api.json) to your local working directory
 
-3. Import and run the method you're interested in
+4. Import and run the method you're interested in
 
 #### Generate agent
+
+```
+from shopagent import generate_agent
+
+request = "Cancel an order"
+generate_agent(request)
+```
+
+#### Generate agent from terminal input
 
 ```
 from shopagent import gen_agent
