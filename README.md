@@ -2,7 +2,7 @@
 
 ![GIF of generating a Shopify agent](media/landing.gif)
 
-Generate a Shopify agent on the fly thanks to Llama and LSD.
+Generate a Shopify agent on the fly thanks to [Llama](https://ollama.com/) and [LSD](https://lsd.so).
 
 ## Contents
 
